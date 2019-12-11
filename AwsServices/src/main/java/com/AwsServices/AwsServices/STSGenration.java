@@ -26,7 +26,7 @@ public class STSGenration {
 
 		// Create a new session with the user credentials for the service instance
 		AWSSecurityTokenServiceClient stsClient = new AWSSecurityTokenServiceClient(
-				new BasicAWSCredentials("AKIAYW6F2HTNYMH5BX7F", "Veooq4ojNTQRbdQJKk38ZNjj/sn/QSZDUHsMhP0h"));
+				new BasicAWSCredentials("", ""));
 
 		// Start a new session for managing a service instance's bucket
 		GetSessionTokenRequest getSessionTokenRequest = new GetSessionTokenRequest().withDurationSeconds(900);
@@ -43,11 +43,10 @@ public class STSGenration {
 	@GetMapping("v1/aws/assumerole/gettokens")
 	public void getassumeroletokens() {
 
-		AWSCredentials initialCredentials = new BasicAWSCredentials("AKIAYW6F2HTNYMH5BX7F",
-				"Veooq4ojNTQRbdQJKk38ZNjj/sn/QSZDUHsMhP0h");
+		AWSCredentials initialCredentials = new BasicAWSCredentials("", "");
 
 		try {
-			String iamRoleArn = "arn:aws:iam::599025925339:role/AWS_DEVL_LAMBDA_ROLE";
+			String iamRoleArn = "arn:aws:iam::xxxxxx:role/AWS_DEVL_LAMBDA_ROLE";
 			AssumeRoleRequest assumeRequest = createAssumeRoleRequest(iamRoleArn);
 
 			AssumeRoleResult assumeResult = new AWSSecurityTokenServiceClient(initialCredentials)
